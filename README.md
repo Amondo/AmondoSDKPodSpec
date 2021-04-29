@@ -54,7 +54,7 @@ import AmondoSDK
 AmondoSDK.initialise(appID: <YOUR_APP_ID>, secretKey: <YOUR_SECRET_KEY>)
 ```
 
-> The initial SDK initialisation is done _asynchronously_. It should therefore be carried out at a suitable location before the SDK is needed. After the first app launch the SDK will remain initialised.
+> The initial SDK initialisation is done _asynchronously_. It should therefore be carried out at a suitable location before the SDK is needed. After the first app launch the SDK will remain initialised. There is also completion block which you can use to perform actions after initialisation.
 
 If you ever need to disconnect from the SDK, you can use: 
 
@@ -78,6 +78,23 @@ AmondoSDK.sharedInstance()?.loadAllImprints(completion: { (error:Error?, imprint
             }
         })
 ```
+
+To load your team imprints, use:
+
+```swift
+
+AmondoSDK.sharedInstance()?.loadTeamImprints(completion: { (error:Error?, imprints:[AMDImprintItemLight]?) in
+            
+            if error == nil {
+                // dragons be here 
+                }
+            } else {
+                print(error)
+            }
+        })
+```
+NOTE: This method will return Light object that only consists of id, publicId and title. Use imprint id to obtaint complete imprint object with loadSingleImprint method.
+
 Or you can load specific Imprints from your available Imprints by inputting the relevant IDs:
 
 ```swift
