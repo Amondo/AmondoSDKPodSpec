@@ -27,7 +27,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AmondoSDK', '~> 0.7.3'
+    pod 'AmondoSDK', '~> 0.7.5'
 end
 ```
 
